@@ -1,0 +1,32 @@
+<channel
+   name="2]  webapitofile"
+   guid="861CB7CDE281ED50480BC4E41AE6899B"
+   description=""
+   start_automatically="false"
+   logging_level="1"
+   use_message_filter="false">
+   <to_file
+      output_dir="C:/Program Files/iNTERFACEWARE/Iguana/season/WebFile/"
+      write_to_separate_file="false"
+      output_single_filename="target3"
+      use_prepended_info_as_filename="false"
+      output_file_id_type="0"
+      output_filename_mask=""
+      temp_file_extension="tmp"
+      count_of_padding_digit="5"
+      ftp_password="0DvVaBchX4Uh3AZ95G3xNTCp0lCH4N2gjw6nSImqBTQ="
+      sftp_authentication_method="user_password"
+      use_ftp="false">
+      <dequeue_list>
+         <dequeue
+            source_name="self"
+            dequeue_guid="BB0907D49E14CD6F05C0522225778C22"/>
+      </dequeue_list>
+   </to_file>
+   <from_mapper
+      guid="webfile1-From-uz9Gj4r3sBGP4p"
+      commit_id="453b5eb2da5b3a50fabf026797fec0bfdb327823"
+      commit_comment="commit"
+      poll_time="10000">
+   </from_mapper>
+</channel>
