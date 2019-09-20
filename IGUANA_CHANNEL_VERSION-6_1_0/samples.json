@@ -1,8 +1,0 @@
-{
-   "Samples": [
-      {
-         "Message": "MSH|^~\\&|iNTERFACEWARE|XYZ_HOSPITAL|MESA_OF|XYZ_RADIOLOGY|||ADT^A01|102108|P|2.3.1|\rEVN||200007010800||||200007010800|\rPID|||583030^^^ADT1||BROWN^JAMES||16-Dec-1950|M||AI|537 PURDUE AVE^^ST. LOUIS^MO^63130||7936656462|3324608824||||20-95-2000|\rPV1||I|1W^111^2^XYZ_HOSPITAL||||1234^WEAVER^TIMOTHY^P^^DR||||||||||1234^WEAVER^TIMOTHY^P^^DR||V1001^^^ADT1|||||||||||||||||||||||||200007010800|\rZID||james.brown@mesa_op.com|||",
-         "Name": ""
-      }
-   ]
-}
