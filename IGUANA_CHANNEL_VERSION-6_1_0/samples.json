@@ -1,0 +1,28 @@
+{
+   "Samples": [
+      {
+         "Message": "<?xml version=\"1.0\"?>\r<patients>\r  <patient id=\"4525285\">\r    <first-name>Tracy</first-name>\r    <last-name>Smith</last-name>\r    <social-security-no>284-517-569</social-security-no>\r  </patient>\r</patients>\r",
+         "Name": ""
+      },
+      {
+         "Message": "<?xml version=\"1.0\"?>\r<patients>\r  <patient id=\"5488754\">\r    <first-name>Fred</first-name>\r    <last-name>Smith</last-name>\r    <social-security-no>558-171-617</social-security-no>\r  </patient>\r</patients>\r",
+         "Name": ""
+      },
+      {
+         "Message": "<?xml version=\"1.0\"?>\r<patients>\r  <patient id=\"9639271\">\r    <first-name>Tracy</first-name>\r    <last-name>White</last-name>\r    <social-security-no>571-349-734</social-security-no>\r  </patient>\r</patients>\r",
+         "Name": ""
+      },
+      {
+         "Message": "<?xml version=\"1.0\"?>\r<patients>\r  <patient id=\"2668844\">\r    <first-name>Gary</first-name>\r    <last-name>Fitzgerald</last-name>\r    <social-security-no>957-321-126</social-security-no>\r  </patient>\r</patients>\r",
+         "Name": ""
+      },
+      {
+         "Message": "<?xml version=\"1.0\"?>\r<patients>\r  <patient id=\"9229102\">\r    <first-name>Tracy</first-name>\r    <last-name>Fitzgerald</last-name>\r    <social-security-no>223-15-522</social-security-no>\r  </patient>\r</patients>\r",
+         "Name": ""
+      },
+      {
+         "Message": "<?xml version=\"1.0\"?>\r<patients>\r  <patient id=\"4101077\">\r    <first-name>Jim</first-name>\r    <last-name>Adams</last-name>\r    <social-security-no>128-474-184</social-security-no>\r  </patient>\r</patients>\r",
+         "Name": ""
+      }
+   ]
+}
