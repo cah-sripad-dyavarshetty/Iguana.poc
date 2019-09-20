@@ -1,9 +1,0 @@
-{
-   "Name": "Mapping JSON to Database (To Translator)",
-   "LuaDependencies": [
-      
-   ],
-   "OtherDependencies": [
-      "example/demo.vmd"
-   ]
-}
