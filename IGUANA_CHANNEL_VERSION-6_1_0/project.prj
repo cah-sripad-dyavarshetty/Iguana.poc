@@ -1,0 +1,11 @@
+{
+   "Name": "Facility 1 - LLP - Translator (To Translator)",
+   "LuaDependencies": [
+      "dateparse",
+      "retry"
+   ],
+   "OtherDependencies": [
+      "hl7.vmd",
+      "tables.vmd"
+   ]
+}
