@@ -1,0 +1,18 @@
+{
+    "LocalDependencies": [],
+    "LuaDependencies": [
+        "Constants",
+        "DBConnection",
+        "Validation",
+        "properties"
+    ],
+    "OtherDependencies": [
+        "XMLdata.xml"
+    ],
+    "timestamp": "1573195066",
+    "version_info": {
+        "build": 0,
+        "major": 6,
+        "minor": 0
+    }
+}
