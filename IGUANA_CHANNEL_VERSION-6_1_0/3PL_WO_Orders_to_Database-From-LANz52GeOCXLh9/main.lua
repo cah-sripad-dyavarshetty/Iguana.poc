@@ -17,14 +17,27 @@ function main()
    if(result_ArchivedDirectory_Status==false and result_ErrorDirectory_Status==false)   then   -- checking for directory exist or not
       os.fs.mkdir(output_archived_path)
       os.fs.mkdir(output_error_path)
+      
    end
+   
+   
+   
    
    -- Read the XML file from the Directory
       file_directory =io.popen([[dir "]]..input_directory_path..[[" /b]])
- 
+   
+   
+   
+
+   
     for filename in file_directory:lines() do
     local order_file=input_directory_path..filename
-  
+      
+      c=io.open(iguana.project.root()..'other/Log/Logfile.txt','a+')
+      d=c:read('*a')
+      
+      --c=io.open("C:\\3PL_WO\\LogFiles\\Logfile.txt",'a+')   --log file creation
+      --d=c:read('*a')
    -- This is the default value of the column ACTIVE_FLAG in the database   
     ACTIVE_FLG="NO"
     ROW_ADD_USER_ID="SYSTEM"
@@ -32,7 +45,11 @@ function main()
     CSOS_ORD_HDR_NUM=1
     CSOS_ORD_HDR_NUM_UPDATE=''
     if(GetFileExtension(order_file) == '.xml') then
-   
+         
+         
+                     c:write(filename.."The given file is xml file tested ok on :"..os.date('%x').."at :"..os.date('%X').."\n")  --checking
+         
+         
      -- Open order file
      local open_order_file = io.open(order_file, "r")
      -- Read order file
@@ -113,7 +130,13 @@ function main()
     CSOS_ORD_HDR_NUM_UPDATE=conn_dev:query{sql='select max(CSOS_ORD_HDR_NUM) from csos_order_header', live=true}; 
             print(CSOS_ORD_HDR_NUM_UPDATE)
     sql_csos_detail_status,sql_csos_detail_error = conn_dev:execute{sql=sql_csos_order_details, live=true};     
-     
+    
+            
+            
+                 c:write("Insertion is done on :"..os.date('%x').."at :"..os.date('%X').."\n")   --checking
+            
+            
+            
             
     -- conn_dev:execute{sql=  [[ CREATE PROCEDURE GetExecuteQueries
     -- AS 
@@ -134,12 +157,17 @@ function main()
      if(sql_csos_order_status == nil and sql_csos_detail_status == nil)
      then
          os.rename(input_directory_path..filename, output_archived_path..filename)
+            c:write("Files got moved to archive folder on :"..os.date('%x').."at :"..os.date('%X').."\n")   
      else
-         os.rename(input_directory_path..filename, output_error_path..filename)            
+         os.rename(input_directory_path..filename, output_error_path..filename)  
+            c:write("Files got moved to error folder on :"..os.date('%x').."at :"..os.date('%X').."\n")   
      end     
     else
          os.rename(input_directory_path..filename, output_error_path..filename)          
          print('File is not in the XML Format')
+            c:write("File is not in the XML Format on :"..os.date('%x').."at :"..os.date('%X').."\n")
+            c:write("Files got moved to error folder on :"..os.date('%x').."at :"..os.date('%X').."\n")
+            
       end -- end for if condition checking whether file is xml or not      
      end -- end for for loop 
    end --end for if condition for validation
@@ -176,9 +204,14 @@ function validationForOrderData(order_data)
       and Validation.validate_value(order_data.root.CSOSOrderRequest.CSOSOrder.Order.OrderItem.SupplierItemNumber:nodeText(),SUPPLIER_ITEM_NUM))
   then
       validateion_status = true
+                  c:write("datatype Validation success on :"..os.date('%x').."at :"..os.date('%X').."\n")   --checking
      else
       validateion_status = false
+      
+                  c:write("datatype Validation failed on :"..os.date('%x').."at :"..os.date('%X').."\n")   --checking
+      
    end -- if condition end
    
    return validateion_status
+ 
 end
