@@ -49,10 +49,7 @@ function main()
         ACTIVE_FLG=active_flg_val
         ROW_ADD_USER_ID=user
         ROW_UPDATE_USER_ID=user
-        CSOS_ORD_HDR_NUM=1
 
-
-        --CSOS_ORD_HDR_NUM_UPDATE=''
         if(GetFileExtension(order_file) == '.xml') then  --if 3  checking for xml type
             c:write(XML_FILE_TEST_SUCCESS..os.date('%x').." at :"..os.date('%X'),"\n")  --checking
             -- Open order file
@@ -187,8 +184,8 @@ function validationForTagStatus(order_data)
         or tag_OrderSummary.PONumber==nil  or tag_OrderSummary.PONumber:nodeText()==nil
         or  tag_OrderSummary.BusinessUnit==nil or tag_OrderSummary.BusinessUnit:nodeText()==nil
         or tag_OrderSummary.OrderChannel==nil or tag_OrderSummary.OrderChannel:nodeText()==nil
-        or tag_OrderSummary.UniqueTransactionNumber==nil or tag_OrderSummary.UniqueTransactionNumber:nodeText()==nil or tag_OrderSummary.NoOfLines:nodeText()==nil
-        or tag_order==nil)
+        or tag_OrderSummary.UniqueTransactionNumber==nil or tag_OrderSummary.UniqueTransactionNumber:nodeText()==nil 
+         or tag_OrderSummary.NoOfLines:nodeText()==nil or tag_order==nil)
     then
 
         for i=1,2 do  --for 3

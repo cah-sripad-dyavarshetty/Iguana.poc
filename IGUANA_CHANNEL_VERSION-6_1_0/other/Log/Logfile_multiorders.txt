@@ -380,3 +380,10 @@ datatype Validation success on :11/15/19 at :15:58:37
 datatype Validation success on :11/15/19 at :15:58:37
 Insertion is done on :11/15/19 at :15:58:38
 The given file is moved to archive folder on :11/15/19 at :15:58:38
+The given file is xml file tested on :11/15/19 at :16:49:59
+all tags are available in xml: 11/15/19 at :16:49:59
+datatype Validation success on :11/15/19 at :16:49:59
+datatype Validation success on :11/15/19 at :16:49:59
+datatype Validation success on :11/15/19 at :16:49:59
+Insertion is done on :11/15/19 at :16:49:59
+The given file is moved to archive folder on :11/15/19 at :16:49:59
