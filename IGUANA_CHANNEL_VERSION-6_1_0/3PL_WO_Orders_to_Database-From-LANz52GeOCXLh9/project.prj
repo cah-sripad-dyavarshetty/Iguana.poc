@@ -5,13 +5,12 @@
         "CreateProcedure",
         "DBConnection",
         "Validation",
+        "email_authentication",
+        "mail",
         "properties"
     ],
-    "OtherDependencies": [
-        "Log/logs_dev.txt",
-        "XMLdata.xml"
-    ],
-    "timestamp": "1574074557",
+    "OtherDependencies": [],
+    "timestamp": "1574945276",
     "version_info": {
         "build": 0,
         "major": 6,
