@@ -1,0 +1,24 @@
+<channel
+   name="3PL with soap exam"
+   guid="573DF130D0239FFA894EAFF1F751739D"
+   description=""
+   start_automatically="false"
+   logging_level="1"
+   use_message_filter="false">
+   <to_mapper
+      guid="3PL_with_soap_exam-To-rV92AMrU7Ogdza"
+      commit_id="f685430888d173d94d3e690862ac3f99ed98b71a"
+      commit_comment="GFJ">
+      <dequeue_list>
+         <dequeue
+            source_name="self"
+            dequeue_guid="4B90EDEC0B2D057B478500FFE9E52032"/>
+      </dequeue_list>
+   </to_mapper>
+   <from_http
+      type="mapper"
+      guid="3PL_with_soap_exam-FromHTTP-CsAQmhe2Okeatw"
+      commit_id="82d788cb86449507b27e38085e1b431c848913b5"
+      commit_comment="commit"
+      mapper_url_path="http://localhost:6543/channel?#Channel=3PL_WO_CHANNEL2"/>
+</channel>
