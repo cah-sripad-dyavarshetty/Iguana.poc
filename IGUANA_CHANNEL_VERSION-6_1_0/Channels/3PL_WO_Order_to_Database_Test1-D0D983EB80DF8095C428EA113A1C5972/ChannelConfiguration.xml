@@ -1,0 +1,24 @@
+<channel
+   name="3PL_WO_Order_to_Database_Test1"
+   guid="D0D983EB80DF8095C428EA113A1C5972"
+   description="duplicate of 3PL_WO_Orders_to_Database"
+   start_automatically="false"
+   logging_level="1"
+   use_message_filter="false">
+   <to_mapper
+      guid="3PL_WO_Order_to_Database_Test1-To-8dFBnJDsDrt98Y"
+      commit_id="9a4083249baa0365c532dcf4d6fb23a649bf64b1"
+      commit_comment="Import Translators: import">
+      <dequeue_list>
+         <dequeue
+            source_name="self"
+            dequeue_guid="BADF77C1894E52AED3CC79696A54DE99"/>
+      </dequeue_list>
+   </to_mapper>
+   <from_mapper
+      guid="3PL_WO_Order_to_Database_Test1-From-dbObmBzLqXUges"
+      commit_id="9a4083249baa0365c532dcf4d6fb23a649bf64b1"
+      commit_comment="Import Translators: import"
+      poll_time="10000">
+   </from_mapper>
+</channel>

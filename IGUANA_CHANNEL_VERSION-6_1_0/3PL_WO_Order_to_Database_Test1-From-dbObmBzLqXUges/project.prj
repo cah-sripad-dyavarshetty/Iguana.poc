@@ -3,13 +3,14 @@
     "LuaDependencies": [
         "Constants",
         "DBConnection",
-        "Update",
-        "file_soap",
+        "Validation",
+        "email_authentication",
         "mail",
+        "procedure_create",
         "properties"
     ],
     "OtherDependencies": [],
-    "timestamp": "1575544548",
+    "timestamp": "1575534190",
     "version_info": {
         "build": 0,
         "major": 6,
