@@ -7,8 +7,8 @@
    use_message_filter="false">
    <to_mapper
       guid="3PL_WO_CHANNEL2-To-V3K1ukP9o5K8qR"
-      commit_id="f685430888d173d94d3e690862ac3f99ed98b71a"
-      commit_comment="GFJ">
+      commit_id="cf81f63729529c90010ba3c55e4e38024fbc3c2b"
+      commit_comment="GOOD">
       <dequeue_list>
          <dequeue
             source_name="self"
@@ -18,7 +18,6 @@
    <from_http
       type="mapper"
       guid="3PL_WO_CHANNEL2-FromHTTP-Ahqh6sE5sFRXpy"
-      commit_id="8e293f4a1ac5f5885431bc00d9962082c681c5dd"
-      commit_comment="commit"
-      mapper_url_path="https://spselitestg.cardinalhealth.net/stage_841/ws/DmsWebService"/>
+      commit_id="63736a3d1790ec0a506bef833de911043bb96157"
+      commit_comment="COMMIT"/>
 </channel>

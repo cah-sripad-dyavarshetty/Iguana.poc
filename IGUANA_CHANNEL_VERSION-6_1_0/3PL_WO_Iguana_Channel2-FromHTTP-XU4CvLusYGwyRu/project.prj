@@ -1,0 +1,18 @@
+{
+    "LocalDependencies": [
+        "Constants.lua",
+        "DBConnection.lua",
+        "Soap_Function.lua",
+        "StoredProcedures.lua",
+        "properties.lua",
+        "send_mail.lua"
+    ],
+    "LuaDependencies": [],
+    "OtherDependencies": [],
+    "timestamp": "1575976372",
+    "version_info": {
+        "build": 0,
+        "major": 6,
+        "minor": 0
+    }
+}
