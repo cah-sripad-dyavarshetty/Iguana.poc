@@ -18,7 +18,7 @@
    <from_http
       type="mapper"
       guid="3PL_with_soap_exam-FromHTTP-CsAQmhe2Okeatw"
-      commit_id="ace9277aa5a742aee644662eb459a96c977b3b41"
-      commit_comment="Import Translators: U"
+      commit_id="296b7a696dc269d4ddd2368855670d1716e61079"
+      commit_comment="commit"
       mapper_url_path="http://localhost:6543/channel?#Channel=3PL_WO_CHANNEL2"/>
 </channel>
