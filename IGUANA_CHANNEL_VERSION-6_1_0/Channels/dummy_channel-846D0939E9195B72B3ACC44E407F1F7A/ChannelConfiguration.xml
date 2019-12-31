@@ -1,0 +1,24 @@
+<channel
+   name="dummy channel"
+   guid="846D0939E9195B72B3ACC44E407F1F7A"
+   description=""
+   start_automatically="false"
+   logging_level="1"
+   use_message_filter="false">
+   <to_mapper
+      guid="dummy_channel-To-KruRfpkDlseSv8"
+      commit_id="2fbbc741dd7e66d7604358052c91a3e381589bf1"
+      commit_comment="commit">
+      <dequeue_list>
+         <dequeue
+            source_name="self"
+            dequeue_guid="066625807195AE38B5B436251B6578D5"/>
+      </dequeue_list>
+   </to_mapper>
+   <from_mapper
+      guid="dummy_channel-From-VZutowiaiR9sD3"
+      commit_id="8c85a142802403b13ba592172426012ba4af9246"
+      commit_comment="commit"
+      poll_time="10000">
+   </from_mapper>
+</channel>
