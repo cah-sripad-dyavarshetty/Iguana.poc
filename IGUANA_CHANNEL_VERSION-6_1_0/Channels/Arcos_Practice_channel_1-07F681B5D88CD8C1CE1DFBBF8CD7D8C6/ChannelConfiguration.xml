@@ -1,0 +1,24 @@
+<channel
+   name="Arcos_Practice_channel 1"
+   guid="07F681B5D88CD8C1CE1DFBBF8CD7D8C6"
+   description=""
+   start_automatically="false"
+   logging_level="1"
+   use_message_filter="false">
+   <to_mapper
+      guid="Arcos_Practice_channel_1-To-ziJspLVs27Emxn"
+      commit_id="0e3f9956976e4da9a0240212adbb9d8a12aa35e1"
+      commit_comment="commit">
+      <dequeue_list>
+         <dequeue
+            source_name="self"
+            dequeue_guid="61655C0D69E9131CC9C75BF05A05E546"/>
+      </dequeue_list>
+   </to_mapper>
+   <from_mapper
+      guid="Arcos_Practice_channel_1-From-2F9k4O6P1diEEj"
+      commit_id="1a4ea20a8c11fdb69514567024ac13c6f32cc88f"
+      commit_comment="commit"
+      poll_time="10000">
+   </from_mapper>
+</channel>

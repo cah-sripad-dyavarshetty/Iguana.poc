@@ -20,6 +20,6 @@ function mail.send_email(email_subject,email_body)
       use_ssl = 'try',
       --live = true -- uncomment to run in the editor
    } 
-  net.smtp.send(smtpparams)
+  --net.smtp.send(smtpparams)
 end
 return mail
