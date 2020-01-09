@@ -17,7 +17,7 @@
    </to_mapper>
    <from_mapper
       guid="ARCOS_Delete_Data_DB-From-CbqINIfwmUcjbb"
-      commit_id="8a1cda9444ba8e9d223d305c79580b82bd11a964"
+      commit_id="70646de64377720636172f02f5add2553c44620b"
       commit_comment="commit"
       poll_time="10000">
    </from_mapper>

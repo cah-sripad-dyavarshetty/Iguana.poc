@@ -1,13 +1,13 @@
-    constants = require("Constants")
-    properties = require("properties")
-    Validation = require("Validation")
+constants = require("Constants")
+properties = require("properties")
+Validation = require("Validation")
 
 
 
 
-    constants.csos_order_header_size()
-    properties.directory_path()
-    properties.db_conn()
+constants.csos_order_header_size()
+properties.directory_path()
+properties.db_conn()
 
 function getLogFile(output_log_path)  -- function getLogFile
     result_LogFileDirectory_Status=os.fs.access(output_log_path)
@@ -31,36 +31,25 @@ log_file:write(TIME_STAMP..CHANNEL_STARTED_RUNNING,"\n")
 
 
 function main()
-    --  table={1,2,3,4,5}
-    --  print(table[1])
     if pcall(verify_Directory_Status) then -- if 1
-        if pcall(Verify_DBConn) then   --if 2  --handling exception for database connection
-            --for i=1,5 do
+        if pcall(Verify_DBConn) then   --if 2  --handling exception for database connection           
             ts=os.time()
             DATE_VALUE=os.date('%Y-%m-%d %H:%M:%S',ts)
             print(DATE_VALUE)
             if pcall(Validation.validate_string_value,DATE_VALUE,PO_DATE) then  --if 4
                 validate_string_value_status=Validation.validate_string_value(DATE_VALUE,PO_DATE)
-
-                if (validate_string_value_status==true)  then  --if 99
-              --      if pcall(create_Procedure) then  --if 5
-                        if pcall(Deletion) then  --if 6
-                        -- log_file:write(TIME_STAMP.." - "..INSERT_SUCCESS,"\n")   --checking
-                        else
-                            log_file:write(TIME_STAMP.."_".."-*-*-*-*-*-*-Detetion Successfull-*-*-*-*-*-*-","\n")
-                        end  --if 6
-               -- else
-               --     log_file:write(TIME_STAMP.."_".."procedure creation failed","\n")
-               -- end  --if 5
-               
+                if (validate_string_value_status==true)  then  --if 99                   
+                    if pcall(Deletion) then  --if 6
+                    -- log_file:write(TIME_STAMP.." - "..INSERT_SUCCESS,"\n")   --checking
+                    else
+                        log_file:write(TIME_STAMP.."_".."-*-*-*-*-*-*-Detetion Successfull-*-*-*-*-*-*-","\n")
+                end  --if 6
                 else
                     log_file:write(TIME_STAMP.."_".."VALIDATION FAILED","\n")
                 end   -- if 99
             else
                 log_file:write(TIME_STAMP.."_".."STRING VALIDATION FAILED","\n")
             end  --if 4
-
-            -- end   --for end
     else
         log_file:write(TIME_STAMP.."_"..DB_CON_ERROR,"\n")
         --mail.send_email()
@@ -91,41 +80,36 @@ function verify_Directory_Status()
     end
 end
 
-function Deletion() 
-   count=0
-   miss_matched_data,matched_data,dummy_miss_matched_data={},{},{}
-  csos_order_header_data=conn:query{sql="select CSOS_ORD_HDR_NUM from world.csos_order_header;",live=true};
-   print(csos_order_header_data[1].CSOS_ORD_HDR_NUM)
-   --print(csos_order_header_data[1].PO_DATE)
-   --print(csos_order_header_data[1].CSOS_ORDER_HDR_STAT,csos_order_header_data[1].ACTIVE_FLG)
-   --print(csos_order_header_data[1].ROW_ADD_STP,csos_order_header_data[1].ROW_ADD_USER_ID)
-  
-   csos_order_header_dummy_data=conn:query{sql="select CSOS_ORD_HDR_NUM from world.csos_order_header_dummy;", live=true};
-  
-   length_csos_order_header_dummy_data=#csos_order_header_dummy_data
-   for j=1,length_csos_order_header_dummy_data do
-      print(csos_order_header_data[j].CSOS_ORD_HDR_NUM,csos_order_header_dummy_data[j].CSOS_ORD_HDR_NUM)
-                    if(tostring(csos_order_header_data[j].CSOS_ORD_HDR_NUM)==tostring(csos_order_header_dummy_data[j].CSOS_ORD_HDR_NUM)) then
-         print(csos_order_header_data[j].CSOS_ORD_HDR_NUM)               
-         matched_data[j]=csos_order_header_data[j].CSOS_ORD_HDR_NUM
-                    else
-         count=count+1
-                        miss_matched_data[count]=csos_order_header_dummy_data[j].CSOS_ORD_HDR_NUM
-                    end
-   end
+function Deletion()   
+    miss_matched_data,matched_data,count={},{},0
+    csos_order_header_data=conn:query{sql="select CSOS_ORD_HDR_NUM from world.csos_order_header;",live=true};
+    print(csos_order_header_data[1].CSOS_ORD_HDR_NUM)
+    --print(csos_order_header_data[1].PO_DATE)
+    --print(csos_order_header_data[1].CSOS_ORDER_HDR_STAT,csos_order_header_data[1].ACTIVE_FLG)
+    --print(csos_order_header_data[1].ROW_ADD_STP,csos_order_header_data[1].ROW_ADD_USER_ID)
+
+    csos_order_header_dummy_data=conn:query{sql="select CSOS_ORD_HDR_NUM from world.csos_order_header_dummy;", live=true};
+    length_csos_order_header_dummy_data=#csos_order_header_dummy_data
+    for j=1,length_csos_order_header_dummy_data do
+        print(csos_order_header_data[j].CSOS_ORD_HDR_NUM,csos_order_header_dummy_data[j].CSOS_ORD_HDR_NUM)
+        if(tostring(csos_order_header_data[j].CSOS_ORD_HDR_NUM)==tostring(csos_order_header_dummy_data[j].CSOS_ORD_HDR_NUM)) then
+            print(csos_order_header_data[j].CSOS_ORD_HDR_NUM)
+            matched_data[j]=csos_order_header_data[j].CSOS_ORD_HDR_NUM
+        else
+            count=count+1
+            miss_matched_data[count]=csos_order_header_dummy_data[j].CSOS_ORD_HDR_NUM
+        end
+    end
     print(miss_matched_data,matched_data,#miss_matched_data)
-   
-   if(#miss_matched_data==0) then
-     log_file:write(TIME_STAMP.."*-*-Detetion Failed as there is NO data which is MISS_MATCHED-*-*","\n")
-      end
-   if(#miss_matched_data>0) then
-      log_file:write(TIME_STAMP.."*-*-*-*-*-*-*-*-Detetion Successfull-*-*-*-*-*-*-*-*","\n")
-      end
-   for k=1,count do
-   deletion_status=conn:query{sql="delete from csos_order_header_dummy where CSOS_ORD_HDR_NUM='"..miss_matched_data[k].."';",live=true};
-   end
-  
-      
+    if(#miss_matched_data==0) then
+        log_file:write(TIME_STAMP.."*-*-Deletion Failed as there is NO data which is MISS_MATCHED-*-*","\n")
+    end
+    if(#miss_matched_data>0) then
+        log_file:write(TIME_STAMP.."*-*-*-*-*-*-*-*-Detetion Successfull-*-*-*-*-*-*-*-*","\n")
+    end
+    for k=1,count do
+        deletion_status=conn:query{sql="delete from csos_order_header_dummy where CSOS_ORD_HDR_NUM='"..miss_matched_data[k].."';",live=true};
+    end
 end
 
   
