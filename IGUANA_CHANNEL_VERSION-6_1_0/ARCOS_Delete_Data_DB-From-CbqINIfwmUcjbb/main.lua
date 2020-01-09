@@ -46,8 +46,8 @@ function main()
                         if pcall(Deletion) then  --if 6
                         -- log_file:write(TIME_STAMP.." - "..INSERT_SUCCESS,"\n")   --checking
                         else
-                            log_file:write(TIME_STAMP.."_".."Deletion failed","\n")
-                    end  --if 6
+                            log_file:write(TIME_STAMP.."_".."-*-*-*-*-*-*-Detetion Successfull-*-*-*-*-*-*-","\n")
+                        end  --if 6
                -- else
                --     log_file:write(TIME_STAMP.."_".."procedure creation failed","\n")
                -- end  --if 5
@@ -67,7 +67,7 @@ function main()
     else
         log_file:write(TIME_STAMP.."_".."lOG FILES DIRECTORY DOES NOT EXIST","\n")
     end  --if 1
-    log_file:write(TIME_STAMP.."*** Iguana Arcos_Delete_Data_DB stopped  ***","\n")
+    log_file:write(TIME_STAMP.."***     Iguana Arcos_Delete_Data_DB stopped      ***","\n")
 end
 
 
@@ -91,18 +91,16 @@ function verify_Directory_Status()
 end
 
 function Deletion() 
-   miss_matched_data,matched_data={},{}
+   count=0
+   miss_matched_data,matched_data,dummy_miss_matched_data={},{},{}
   csos_order_header_data=conn:query{sql="select CSOS_ORD_HDR_NUM from world.csos_order_header;",live=true};
    print(csos_order_header_data[1].CSOS_ORD_HDR_NUM)
    --print(csos_order_header_data[1].PO_DATE)
    --print(csos_order_header_data[1].CSOS_ORDER_HDR_STAT,csos_order_header_data[1].ACTIVE_FLG)
    --print(csos_order_header_data[1].ROW_ADD_STP,csos_order_header_data[1].ROW_ADD_USER_ID)
-   length_csos_order_header_data=#csos_order_header_data
-   for i=1,length_csos_order_header_data do
+  
    csos_order_header_dummy_data=conn:query{sql="select CSOS_ORD_HDR_NUM from world.csos_order_header_dummy;", live=true};
-  --  where CSOS_ORD_HDR_NUM!='"..csos_order_header_data[i].CSOS_ORD_HDR_NUM.."'
-      print(csos_order_header_dummy_data)
-   end
+  
    length_csos_order_header_dummy_data=#csos_order_header_dummy_data
    for j=1,length_csos_order_header_dummy_data do
       print(csos_order_header_data[j].CSOS_ORD_HDR_NUM,csos_order_header_dummy_data[j].CSOS_ORD_HDR_NUM)
@@ -110,14 +108,23 @@ function Deletion()
          print(csos_order_header_data[j].CSOS_ORD_HDR_NUM)               
          matched_data[j]=csos_order_header_data[j].CSOS_ORD_HDR_NUM
                     else
-                        miss_matched_data[j]=csos_order_header_dummy_data[j].CSOS_ORD_HDR_NUM
+         count=count+1
+                        miss_matched_data[count]=csos_order_header_dummy_data[j].CSOS_ORD_HDR_NUM
                     end
    end
-   print(miss_matched_data,matched_data)
-   conn:execute{sql="delete from csos_order_header_dummy where CSOS_ORD_HDR_NUM='"..miss_matched_data[4].."';",live=true};
+    print(miss_matched_data,matched_data,#miss_matched_data)
+   
+   if(#miss_matched_data==0) then
+     log_file:write(TIME_STAMP.."*-*-Detetion Failed as there is NO data which is MISS_MATCHED-*-*","\n")
+      end
+   if(#miss_matched_data>0) then
+      log_file:write(TIME_STAMP.."*-*-*-*-*-*-*-*-Detetion Successfull-*-*-*-*-*-*-*-*","\n")
+      end
+   for k=1,count do
+   deletion_status=conn:query{sql="delete from csos_order_header_dummy where CSOS_ORD_HDR_NUM='"..miss_matched_data[k].."';",live=true};
+   end
+  
+      
 end
 
-
-
-
-   
+  

@@ -74,7 +74,7 @@ function main()
     else
         log_file:write(TIME_STAMP.."_".."lOG FILES DIRECTORY DOES NOT EXIST","\n")
     end  --if 1
-    log_file:write(TIME_STAMP.."*** Iguana Arcos Practice channe2 stopped  ***","\n")
+    log_file:write(TIME_STAMP.."***     Iguana Arcos Practice channe2 stopped     ***","\n")
 end
 
 function DBconnection()
