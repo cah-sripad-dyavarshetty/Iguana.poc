@@ -17,8 +17,8 @@
    </to_mapper>
    <from_mapper
       guid="3PL_WO_Order_to_Database_Test1-From-dbObmBzLqXUges"
-      commit_id="ace9277aa5a742aee644662eb459a96c977b3b41"
-      commit_comment="Import Translators: U"
+      commit_id="abab5f9c236672ed11132f01bca229a2cd433a5f"
+      commit_comment="commit"
       poll_time="10000">
    </from_mapper>
 </channel>

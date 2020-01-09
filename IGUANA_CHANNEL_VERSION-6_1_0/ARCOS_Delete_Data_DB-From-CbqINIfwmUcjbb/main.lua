@@ -26,11 +26,12 @@ function getLogFile(output_log_path)  -- function getLogFile
 end  --end function getLogFile
 
 
-log_file = getLogFile(output_log_path)    --calling the geLogFile function
-log_file:write(TIME_STAMP..CHANNEL_STARTED_RUNNING,"\n")
+
 
 
 function main()
+   log_file = getLogFile(output_log_path)    --calling the geLogFile function
+   log_file:write(TIME_STAMP..CHANNEL_STARTED_RUNNING,"\n")
     if pcall(verify_Directory_Status) then -- if 1
         if pcall(Verify_DBConn) then   --if 2  --handling exception for database connection           
             ts=os.time()
@@ -68,7 +69,7 @@ function Verify_DBConn()  --function for validating db connection
     return conn:check()
 end
 
-result_LogDirectory_Status=os.fs.access(output_log_path)
+
 
 function verify_Directory_Status()
 

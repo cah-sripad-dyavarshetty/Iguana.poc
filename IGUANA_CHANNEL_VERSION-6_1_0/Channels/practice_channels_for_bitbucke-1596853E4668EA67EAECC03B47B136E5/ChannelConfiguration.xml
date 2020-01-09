@@ -1,0 +1,24 @@
+<channel
+   name="practice channels for bitbucke"
+   guid="1596853E4668EA67EAECC03B47B136E5"
+   description=""
+   start_automatically="false"
+   logging_level="1"
+   use_message_filter="false">
+   <to_mapper
+      guid="practice_channels_for_bitbucke-To-rOeiHBwrBxzmxk"
+      commit_id="73b7c97271f383a6b4a57cf9b22a373112339514"
+      commit_comment="Import Translators: import">
+      <dequeue_list>
+         <dequeue
+            source_name="self"
+            dequeue_guid="D8BBFDD2E7404324579B7664B4B17437"/>
+      </dequeue_list>
+   </to_mapper>
+   <from_mapper
+      guid="practice_channels_for_bitbucke-From-7g90nKNofaqoZn"
+      commit_id="73b7c97271f383a6b4a57cf9b22a373112339514"
+      commit_comment="Import Translators: import"
+      poll_time="10000">
+   </from_mapper>
+</channel>

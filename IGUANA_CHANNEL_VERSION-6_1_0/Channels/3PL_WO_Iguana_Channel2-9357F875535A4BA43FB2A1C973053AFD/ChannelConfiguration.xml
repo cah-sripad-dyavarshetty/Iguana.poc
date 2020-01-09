@@ -7,8 +7,8 @@
    use_message_filter="false">
    <to_mapper
       guid="3PL_WO_Iguana_Channel2-To-KeL7w9lNiRaUkR"
-      commit_id="ace9277aa5a742aee644662eb459a96c977b3b41"
-      commit_comment="Import Translators: U">
+      commit_id="6d1c5b3814c1e8b77f31680169d88bbd2351a4a9"
+      commit_comment="Import Translators: import">
       <dequeue_list>
          <dequeue
             source_name="self"
@@ -18,7 +18,6 @@
    <from_http
       type="mapper"
       guid="3PL_WO_Iguana_Channel2-FromHTTP-XU4CvLusYGwyRu"
-      commit_id="86fe734f3abbf2a7b87bb0f2ec4aefff2ab94ef6"
-      commit_comment="updated with stored procedure"
-      mapper_url_path="http://localhost:6555/channel?#Channel=3PL_WO_CHANNEL2"/>
+      commit_id="6d1c5b3814c1e8b77f31680169d88bbd2351a4a9"
+      commit_comment="Import Translators: import"/>
 </channel>

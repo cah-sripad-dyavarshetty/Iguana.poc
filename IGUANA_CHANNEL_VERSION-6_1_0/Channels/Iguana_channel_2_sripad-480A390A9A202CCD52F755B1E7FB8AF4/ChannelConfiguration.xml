@@ -1,0 +1,24 @@
+<channel
+   name="Iguana channel 2 sripad"
+   guid="480A390A9A202CCD52F755B1E7FB8AF4"
+   description=""
+   start_automatically="false"
+   logging_level="1"
+   use_message_filter="false">
+   <to_mapper
+      guid="Iguana_channel_2_sripad-To-f1dcLBHjmjR6M5"
+      commit_id="252a272ddec2ce92d1e51a85ef962dea6cbfa542"
+      commit_comment="good">
+      <dequeue_list>
+         <dequeue
+            source_name="self"
+            dequeue_guid="57DAE08CC0D33E6D80D04BD872E67484"/>
+      </dequeue_list>
+   </to_mapper>
+   <from_http
+      type="mapper"
+      guid="Iguana_channel_2_sripad-FromHTTP-CA8lwpkopkUQ4f"
+      commit_id="a288612530088d93d16abbcec550b57dc614da60"
+      commit_comment="commit"
+      mapper_url_path="http://localhost:6575/channel?#Channel=3PL_WO_CHANNEL2"/>
+</channel>

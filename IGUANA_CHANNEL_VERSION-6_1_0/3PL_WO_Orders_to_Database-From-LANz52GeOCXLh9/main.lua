@@ -40,7 +40,7 @@ function main()
 
             if(GetFileExtension(order_file) == '.xml') then -- Validation file extension
                 fileName_with_timestamp = GetFileName(filename).."_"..TIME_STAMP_FOR_FILE..GetFileExtension(filename)
-          
+
                 log_file:write(TIME_STAMP..filename..XML_FILE_TEST_SUCCESS,"\n")  --checking
                 -- Open order file
                 open_order_file = io.open(order_file, "r")
@@ -61,7 +61,7 @@ function main()
 
                             tag_OrderSummary=order_data.CSOSOrderRequest.CSOSOrder.OrderSummary
                             tag_order=order_data.CSOSOrderRequest.CSOSOrder.Order
-                     
+
                             ts=os.time()
                             DATE_VALUE=os.date('%Y-%m-%d %H:%M:%S',ts)
                             if pcall(Verify_DBConn) then
@@ -106,11 +106,11 @@ function main()
                 end -- end for unable to open file
             else -- else for validation file extension
                 if(GetFileExtension(filename) ~= nil) then
-                     error_table[error_count]=GetFileName(filename).."_"..TIME_STAMP_FOR_FILE..GetFileExtension(filename)
-                     error_count=error_count+1
-                     log_file:write(TIME_STAMP..filename..":"..XML_FILE_TEST_FAIL,"\n")  --checking
-                     os.rename(input_directory_path..filename, output_error_path..GetFileName(filename).."_"..TIME_STAMP_FOR_FILE..GetFileExtension(filename))
-                end
+                    error_table[error_count]=GetFileName(filename).."_"..TIME_STAMP_FOR_FILE..GetFileExtension(filename)
+                    error_count=error_count+1
+                    log_file:write(TIME_STAMP..filename..":"..XML_FILE_TEST_FAIL,"\n")  --checking
+                    os.rename(input_directory_path..filename, output_error_path..GetFileName(filename).."_"..TIME_STAMP_FOR_FILE..GetFileExtension(filename))
+            end
             end -- end for if condition checking whether file is xml or not
             total_count=total_count+1
         end --end for for loop
@@ -120,7 +120,7 @@ function main()
         for i=0,archive_count-1 do
             log_file:write(TIME_STAMP..archived_table[i].." file is moved to archive directory  ","\n")
         end
-      
+
         -- This loop for generate the logs for error files count and their file names
         log_file:write(TIME_STAMP.."Total files  moved to error directory  "..error_count ,"\n")
         local error_table_list_temp = ''
@@ -130,7 +130,7 @@ function main()
         end
         if(error_count>0) then
             mail.send_email("3PL WO Iguana Channel1 - Error files and Not updated in the DB", "Hi All,".."\n\n"..
-            "Below are the list of error files in the Iguana Channel 1 \n"..error_table_list_temp.."\n\n".."Thanks,\n 3PL WO Iguana Team")
+                "Below are the list of error files in the Iguana Channel 1 \n"..error_table_list_temp.."\n\n".."Thanks,\n 3PL WO Iguana Team")
         end
     else
         log_file:write(TIME_STAMP.."Not able to create or there is no OrderFile, ArchiveFiles and ErrorFiles folders")
@@ -358,9 +358,7 @@ end
 -- Validating the order data
 function validationForOrderData(order_data)
     -- Validation for csos_order_header
-    local validateion_status = false
-
-
+   local validateion_status = false
     if(order_data~=nil and order_data.CSOSOrderRequest~=nil and order_data.CSOSOrderRequest.CSOSOrder~=nil and
         order_data.CSOSOrderRequest.CSOSOrder.OrderSummary~=nil and order_data.CSOSOrderRequest.CSOSOrder.Order~=nil
         and order_data.CSOSOrderRequest.CSOSOrder.Order.OrderItem~=nil
@@ -375,7 +373,7 @@ function validationForOrderData(order_data)
         and Validation.validate_value(order_data.CSOSOrderRequest.CSOSOrder.OrderSummary.NoOfLines,NO_OF_LINES)
         and Validation.validate_value(order_data.CSOSOrderRequest.CSOSOrder.OrderSummary.Supplier.Name,NAME)
         and Validation.validate_value(order_data.CSOSOrderRequest.CSOSOrder.OrderSummary.Supplier.Address1,ADDR1)
-        and Validation.validate_value(order_data.CSOSOrderRequest.CSOSOrder.OrderSummary.Supplier.Address2,ADDR2)        
+        and Validation.validate_value(order_data.CSOSOrderRequest.CSOSOrder.OrderSummary.Supplier.Address2,ADDR2)
         and Validation.validate_value(order_data.CSOSOrderRequest.CSOSOrder.OrderSummary.Supplier.City,CITY)
         and Validation.validate_value(order_data.CSOSOrderRequest.CSOSOrder.OrderSummary.Supplier.State,STATE)
         and Validation.validate_value(order_data.CSOSOrderRequest.CSOSOrder.OrderSummary.Supplier.PostalCode,POSTAL_CDE)
@@ -392,12 +390,13 @@ function validationForOrderData(order_data)
     then
         Size_Of_NoOfLines=order_data.CSOSOrderRequest.CSOSOrder.OrderSummary.NoOfLines:nodeText()
         SIZE_OF_ORDERITEM=order_data.CSOSOrderRequest.CSOSOrder.Order:childCount("OrderItem")
-
-        if(tostring(SIZE_OF_ORDERITEM)~=order_data.CSOSOrderRequest.CSOSOrder.OrderSummary.NoOfLines:nodeText())
+      
+       if(tostring(SIZE_OF_ORDERITEM)~=order_data.CSOSOrderRequest.CSOSOrder.OrderSummary.NoOfLines:nodeText())
         then
             validateion_status = false
             return validateion_status
         end
+   
         for i=1,Size_Of_NoOfLines do
 
             -- validation for csos_order_details
@@ -420,8 +419,12 @@ function validationForOrderData(order_data)
                 validateion_status = false
             end    --end
         end  --end
+      
     else
         validateion_status = false
     end --end
     return validateion_status
 end  --end validationForOrderData() function
+
+
+
