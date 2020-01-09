@@ -1,0 +1,24 @@
+<channel
+   name="ARCOS_Delete_Data_DB"
+   guid="2F41F3523436D0535AFD4875DDCAF812"
+   description="This channel helps in deleting data which is not necessary from csos_order_header"
+   start_automatically="false"
+   logging_level="1"
+   use_message_filter="false">
+   <to_mapper
+      guid="ARCOS_Delete_Data_DB-To-Z7pmvSlnnl0i0v"
+      commit_id="beb73c1370c27e6178e5123b8eb46ea16654799e"
+      commit_comment="commit">
+      <dequeue_list>
+         <dequeue
+            source_name="self"
+            dequeue_guid="B8C4307D9F7B486E757174AF7D0AD072"/>
+      </dequeue_list>
+   </to_mapper>
+   <from_mapper
+      guid="ARCOS_Delete_Data_DB-From-CbqINIfwmUcjbb"
+      commit_id="070a9cf7da6a6a2a76acc95c7d016f016016dec2"
+      commit_comment="commit"
+      poll_time="10000">
+   </from_mapper>
+</channel>
