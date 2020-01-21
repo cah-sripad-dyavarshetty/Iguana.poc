@@ -51,6 +51,7 @@ end  --end function getLogFile
 function DBConn() --function DBConn
     return conn:check()
 end  --end function DBConn
+
 function before_reader_data(i)
    csos_order_header_data=conn:query{sql="select CSOS_ORD_HDR_NUM,UNIQUE_TRANS_NUM,PO_NUMBER,PO_DATE,SHIPTO_NUM from 3pl_sps_ordering.csos_order_header where CSOS_ORDER_HDR_STAT='"..tostring(CSOS_ORDER_HDR_STAT_VALUE).."';", live=true};
         if(#csos_order_header_data>0 ) then   --if 3  -- checking for csos_order_header_data size
@@ -61,7 +62,9 @@ function before_reader_data(i)
                 --if (order_header_data[1].ELITE_ORDER_NUM ~= nil)
 
                 customer_billto_shipto_data=conn:query{sql="select BILLTO_NUM,ORG_CDE,CUSTOMER_NUM,SHIPTO_NUM FROM 3pl_sps_ordering.customer_billto_shipto WHERE CUSTOMER_NUM='"..tostring(order_header_data[1].CUSTOMER_NUM).."';",live=true};
-                before_header_function(order_header_data,customer_billto_shipto_data,csos_order_header_data,i)
+               
+         before_header_function(order_header_data,customer_billto_shipto_data,csos_order_header_data,i)
+               
                 log_file:write(TIME_STAMP..csos_order_header_data[i].UNIQUE_TRANS_NUM.." is completed ****","\n")
             end  --end for 1
             log_file:write(TIME_STAMP.."Total transactions : "..#csos_order_header_data,"\n")
@@ -74,12 +77,13 @@ function before_reader_data(i)
             log_file:write(TIME_STAMP..CSOS_ORDER_HEADER_EMPTY,"\n")
         end  --end if 3
    end
+
 function before_header_function(order_header_data,customer_billto_shipto_data,csos_order_header_data,i)
     if(#order_header_data>0 and #customer_billto_shipto_data>0) then  --if 4  --checking for order_header_data and customer_billto_shipto_data size
         log_file:write(TIME_STAMP..csos_order_header_data[i].UNIQUE_TRANS_NUM.." - Extracted data from order_header","\n")
         log_file:write(TIME_STAMP..csos_order_header_data[i].UNIQUE_TRANS_NUM.." - Extracted data from customer_billto_shipto","\n")
-        -- SEQ_CODE = conn_Elite_stg:query{sql="select seq from prod_841_d.ord_hold where ord_id = '"..tostring(order_header_data[1].ELITE_ORDER_NUM).."'",live=true};
-        SEQ_CODE= '1'
+        SEQ_CODE = conn_Elite_stg:query{sql="select seq from prod_841_d.ord_hold where ord_id = '"..tostring(order_header_data[1].ELITE_ORDER_NUM).."'",live=true};
+        --SEQ_CODE= '1'
         if(#SEQ_CODE > 0) then   --if 15
 
             header_compare(csos_order_header_data,customer_billto_shipto_data,i)  -- calling function header_compare
@@ -94,6 +98,7 @@ function before_header_function(order_header_data,customer_billto_shipto_data,cs
     end   --end if 4
 
 end
+
 function header_compare(csos_order_header_data,customer_billto_shipto_data,i)
 
     if(tostring(csos_order_header_data[i].PO_NUMBER)==tostring(order_header_data[1].PO_NUM)
@@ -184,7 +189,7 @@ end
 function Soap_()
     soap.soaprequest()
     status_result=soap.getsoapresponsestatus(soapResponse)--calling soap function
-    return stauts_result
+    return status_result
 end
 
 

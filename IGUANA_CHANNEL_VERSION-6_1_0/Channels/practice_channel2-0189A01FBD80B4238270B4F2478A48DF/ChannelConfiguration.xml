@@ -18,7 +18,7 @@
    <from_http
       type="mapper"
       guid="practice_channels-FromHTTP-vdjBocIC96BsbX"
-      commit_id="eb600542c18eca99525062fa9d8d0453f45bcebd"
-      commit_comment="Import Translators: initial import"
+      commit_id="3eb3396b1090b6f37ad81eac74f11f45b04204e8"
+      commit_comment="elite db added"
       mapper_url_path="http://localhost:6565/channel?#Channel=3PL_WO_CHANNEL2"/>
 </channel>

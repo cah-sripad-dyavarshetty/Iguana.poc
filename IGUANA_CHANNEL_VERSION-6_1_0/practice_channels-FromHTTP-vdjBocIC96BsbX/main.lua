@@ -82,8 +82,8 @@ function fun()
                 if(#order_header_data>0 and #customer_billto_shipto_data>0) then  --if 4  --checking for order_header_data and customer_billto_shipto_data size
                     log_file:write(TIME_STAMP..csos_order_header_data[i].UNIQUE_TRANS_NUM.." - Extracted data from order_header","\n")
                     log_file:write(TIME_STAMP..csos_order_header_data[i].UNIQUE_TRANS_NUM.." - Extracted data from customer_billto_shipto","\n")
-                    -- SEQ_CODE = conn_Elite_stg:query{sql="select seq from prod_841_d.ord_hold where ord_id = '"..tostring(order_header_data[1].ELITE_ORDER_NUM).."'",live=true};
-                    SEQ_CODE= '1'
+                     SEQ_CODE = conn_Elite_stg:query{sql="select seq from prod_841_d.ord_hold where ord_id = '"..tostring(order_header_data[1].ELITE_ORDER_NUM).."'",live=true};
+                    --SEQ_CODE= '1'
                     if pcall(fun2,csos_order_header_data,i,order_header_data,customer_billto_shipto_data) then   --if 125
             
                     end  --end if 125

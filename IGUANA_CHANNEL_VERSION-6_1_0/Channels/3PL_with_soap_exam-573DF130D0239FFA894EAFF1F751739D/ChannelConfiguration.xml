@@ -18,7 +18,7 @@
    <from_http
       type="mapper"
       guid="3PL_with_soap_exam-FromHTTP-CsAQmhe2Okeatw"
-      commit_id="296b7a696dc269d4ddd2368855670d1716e61079"
-      commit_comment="commit"
+      commit_id="11fc8f70fa47beaf2e9fdb3ded7771087f5f1e24"
+      commit_comment="updated with elite db"
       mapper_url_path="http://localhost:6543/channel?#Channel=3PL_WO_CHANNEL2"/>
 </channel>
