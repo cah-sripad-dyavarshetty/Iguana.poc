@@ -2,13 +2,12 @@
     "LocalDependencies": [
         "Constants.lua",
         "DBConnection.lua",
-        "Properties.lua",
         "Stored_Procedures.lua",
         "Validation.lua"
     ],
     "LuaDependencies": [],
     "OtherDependencies": [],
-    "timestamp": "1579704147",
+    "timestamp": "1579783929",
     "version_info": {
         "build": 0,
         "major": 6,
