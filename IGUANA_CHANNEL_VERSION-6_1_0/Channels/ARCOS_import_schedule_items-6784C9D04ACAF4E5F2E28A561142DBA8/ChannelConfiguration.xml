@@ -17,7 +17,7 @@
    </to_mapper>
    <from_mapper
       guid="ARCOS_import_schedule_items-From-2uKppa93NVqPqq"
-      commit_id="063b55d25afb869ed407078a104bf7c40f707f69"
+      commit_id="9c6a8cf29ad1500ef3a83e83580c586c47228a83"
       commit_comment="commit"
       poll_time="10000">
    </from_mapper>
